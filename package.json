@@ -4,13 +4,17 @@
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
+  "engines": {
+    "node": "12.18.3"
+  },
   "scripts": {
     "start": "node backend/server.js",
     "server": "nodemon backend/server",
     "client": "npm start --prefix frontend",
     "dev": "concurrently \"npm run server\" \"npm run client\" ",
     "data:import": "node backend/seeder.js",
-    "data:destroyed": "node backend/seeder.js -d"
+    "data:destroyed": "node backend/seeder.js -d",
+    "heroku-postbuild": "NPM_CONFIG_PRODUCTION=false npm install --prefix frontend && npm run build --prefix frontend"
   },
   "author": "",
   "license": "ISC",
